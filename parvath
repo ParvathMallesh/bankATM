@@ -1,0 +1,84 @@
+#include <iostream>
+
+using namespace std;
+int BaseAmt=500,bal=0,wd,ch;
+void deposit( )
+{
+    int depo;
+    cout<<"enter the amount to be deposited"<<endl;
+    cin>>depo;
+    if (bal<=0)
+    {
+        cout<<"wrong input"<<endl;
+    }
+    else
+    bal=bal+depo;
+    cout<<"Updated balance="<<bal<<endl;
+    //return bal;
+
+}
+void Withdraw()
+{
+    cout<<"Enter the amount to be withdrawn:"<<endl;
+    cin>>wd;
+    if (bal>BaseAmt)
+    {
+        if ((bal-BaseAmt)>wd)
+        {
+            bal=bal-wd;
+            cout<<"Updated balance="<<bal<<endl;
+            //return bal;
+        }
+        else
+            cout<<"insufficient balance"<<endl;
+
+    }
+    else
+        cout<<"insufficient balance"<<endl;
+
+}
+void createAccount()
+{
+
+    while (bal<=0)
+    {
+         cout<<"Enter the proper Amount to be deposited "<<endl;
+         cin>>bal;
+    }
+    //return bal;
+
+}
+int main()
+{
+    int ch;
+    cout << "WELLCOME TO THE BANK" << endl;
+    createAccount();
+    do
+    {
+        cout<<"1.Balance Inquiry "<<endl;
+        cout << "2.Deposit  " << endl;
+        cout << "3.Withdraw" << endl;
+        cout << "4.exit" << endl;
+        cout << "Enter your Choice" << endl;
+        cin>>ch;
+        switch(ch)
+        {
+        case 1:
+
+            cout << "Balance=" <<bal<< endl;
+            break;
+        case 2:
+            deposit();
+            break;
+        case 3:
+            Withdraw();
+            break;
+
+        default:
+            cout << "INVALID INPUT" << endl;
+
+        }
+    }
+    while(ch!=4);
+    return 0;
+}
